@@ -16,6 +16,25 @@
 
     <div class="container-xl">
 
+        <p>Agregar Empleado:</p>
+        <form th:action="@{/empleado}" th:object="${empleado}" method="post">
+            <label>Id:</label>
+            <input type="text" th:field="*{id}" required minlength="1" maxlength="10" /><br />
+            <label>Nombre:</label>
+            <input type="text" th:field="*{nombre}" required minlength="1" maxlength="50" /><br />
+            <label>Apellido:</label>
+            <input type="text" th:field="*{apellido}" required minlength="1" maxlength="50" /><br />
+            <label>Correo:</label>
+            <input type="email" th:field="*{correo}" required /><br />
+            <label>Dirección:</label>
+            <input type="text" th:field="*{direccion}" required minlength="1" maxlength="100" /><br />
+            <label>Teléfono:</label>
+            <input type="tel" th:field="*{telefono}" required pattern="[0-9]{10}" /><br />
+            <input type="submit" value="Enviar" />
+        </form>
+
+
+
         <div th:if="${empleados.isEmpty()}">no hay empleados en la lista!</div>
         <table th:if="${not empleados.isEmpty()}" class="table table-bordered">
             <thead>
@@ -38,6 +57,9 @@
                 </tr>
             </tbody>
         </table>
+
+
+
 
     </div>
 

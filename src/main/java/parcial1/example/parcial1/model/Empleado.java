@@ -2,13 +2,26 @@ package parcial1.example.parcial1.model;
 
 public class Empleado {
 
+    @NotEmpty
     private int id;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String direccion;
-    private Long telefono;
 
+    @NotEmpty
+    @Size(min = 3, max = 8)
+    private String nombre;
+
+    @NotEmpty
+    @Size(min = 3, max = 8)
+    private String apellido;
+
+    @NotEmpty
+    @Email
+    private String correo;
+
+    @NotEmpty
+    private String direccion;
+
+    @NotEmpty
+    private Long telefono;
 
     public Empleado() {
     }
